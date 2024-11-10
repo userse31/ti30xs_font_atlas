@@ -1,0 +1,436 @@
+<html>
+<head>
+<title>TI-30xs Font Atlas</title>
+</head>
+<body>
+<center>
+<canvas id="lcd_atlas" width="96" height="136" style="border:2px solid #777777;"></canvas>
+<p>If the above box is empty, that means you haven't populated "font_thing" inside resources.js</p>
+</center>
+</body>
+<script src="./defines.js"></script>
+<script src="./resources.js"></script>
+<script>
+var ctx=document.getElementById("lcd_atlas").getContext("2d");
+
+function draw_5bit_to_canvas(x,y,val){
+	//The TI 30XS Multiview uses a 5x7 font. The font inside the calculator's rom is setup where the _most significant three bits_ are always zero.
+	switch(val){
+		case 0x00:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x01:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x02:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x03:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x04:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x05:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x06:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x07:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x08:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x09:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x0A:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x0B:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x0C:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x0D:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x0E:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x0F:
+			ctx.fillStyle="white";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x10:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x11:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x12:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x13:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x14:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x15:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x16:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x17:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x18:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x19:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x1A:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x1B:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x1C:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x1D:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x1E:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="white";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		case 0x1F:
+			ctx.fillStyle="black";
+			ctx.fillRect(x,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+1,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+2,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+3,y,1,1);
+			ctx.fillStyle="black";
+			ctx.fillRect(x+4,y,1,1);
+			break;
+		default:
+			break;
+	}
+}
+
+function draw_char(x,y,val){
+	/*draw_5bit_to_canvas(x,y,font_thing[val*8]);
+	draw_5bit_to_canvas(x,y+1,font_thing[val*8+1]);
+	draw_5bit_to_canvas(x,y+2,font_thing[val*8+2]);
+	draw_5bit_to_canvas(x,y+3,font_thing[val*8+3]);
+	draw_5bit_to_canvas(x,y+4,font_thing[val*8+4]);
+	draw_5bit_to_canvas(x,y+5,font_thing[val*8+5]);
+	draw_5bit_to_canvas(x,y+6,font_thing[val*8+7]);*/
+
+	draw_5bit_to_canvas(x,y+0,font_thing[val*8+1]);
+	draw_5bit_to_canvas(x,y+1,font_thing[val*8+0]);
+	draw_5bit_to_canvas(x,y+2,font_thing[val*8+3]);
+	draw_5bit_to_canvas(x,y+3,font_thing[val*8+2]);
+	draw_5bit_to_canvas(x,y+4,font_thing[val*8+5]);
+	draw_5bit_to_canvas(x,y+5,font_thing[val*8+4]);
+	draw_5bit_to_canvas(x,y+6,font_thing[val*8+7]);
+}
+
+//draw_char(5*20,7*8,108);
+
+var i=0;
+for(var y=0;y<17;y++){
+	for(var x=0;x<16;x++){
+		draw_char(6*x,8*y,i);
+		i++;
+	}
+}
+</script>
+</html>
